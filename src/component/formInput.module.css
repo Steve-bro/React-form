@@ -1,0 +1,7 @@
+.label {
+  text-transform: capitalize;
+  display: block;
+}
+button {
+  margin-top: 2em;
+}
