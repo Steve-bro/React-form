@@ -5,6 +5,7 @@ import FormInput from './formInput'
 export default function form() {
   console.log('form: re-rendered');
 
+  const [submit, setSubmit] = useState(0)
   const [formVal, setFormVal] = useState({
     username: '',
     email: '',
@@ -13,10 +14,11 @@ export default function form() {
     confirmpassword: ''
   })
 
+  console.log(formVal);
   const formAttributes = [
     {
       id: 1,
-      name: 'Uname',
+      name: 'username',
       type: 'text',
       title: 'username',
       placeholder: 'username'
@@ -30,7 +32,7 @@ export default function form() {
     },
     {
       id: 3,
-      name: 'DOB',
+      name: 'dateofbirth',
       type: 'text',
       title: 'date of birth',
       placeholder: 'MM/DD/YYYY'
@@ -44,7 +46,7 @@ export default function form() {
     },
     {
       id: 5,
-      name: 'Confpassword',
+      name: 'confirmpassword',
       type: 'password',
       title: 'confirm password',
       placeholder: 'confirm password'
@@ -54,9 +56,9 @@ export default function form() {
   return (
     <form className={styles.form_container}>
       {formAttributes.map((input) => {
-        return <FormInput key={input.id} {...input} value={formVal} setValue={setFormVal}/>
+        return <FormInput key={input.id} {...input} value={formVal} setValue={setFormVal} submit={submit} setSubmit={setSubmit}/>
       })}
-      <button onClick={(e) => e.preventDefault()} type='submit'>submit</button>
+      <button onClick={(e) => {e.preventDefault(); setSubmit(1)}} type='submit'>submit</button>
     </form>
   )
 }

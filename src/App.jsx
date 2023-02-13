@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import Form from './component/form'
+import Form from './components/form'
 
 function App() {
   console.log('App: re-rendered');
